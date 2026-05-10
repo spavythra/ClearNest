@@ -1,11 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Navbar } from "@/components/layout/navbar"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { Flame, Plus, Calendar, TrendingUp } from "lucide-react"
-import Link from "next/link"
 
 interface Streak {
   id: string

@@ -2,7 +2,6 @@
 
 import { Task } from "@/app/reminders/page"
 import { TaskCard } from "./TaskCard"
-import { ChevronDown } from "lucide-react"
 
 interface KanbanColumnProps {
   column: {
@@ -54,7 +53,7 @@ export function KanbanColumn({
 }: KanbanColumnProps) {
   const colors = colorClasses[column.color as keyof typeof colorClasses]
 
-  const nextColumns: Task["column_id"][] = {
+  const nextColumns: Record<Task["column_id"], Task["column_id"]> = {
     todo: "in-progress",
     "in-progress": "review",
     review: "done",

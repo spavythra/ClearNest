@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { Navbar } from "@/components/layout/navbar"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { ShoppingCart, Plus, Trash2, Check } from "lucide-react"
 
 interface ShoppingItem {
