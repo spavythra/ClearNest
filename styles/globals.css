@@ -181,6 +181,10 @@
     @apply bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent;
   }
 
+  .text-gradient-peacock {
+    @apply bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent;
+  }
+
   .divider-gold {
     @apply h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent;
   }
