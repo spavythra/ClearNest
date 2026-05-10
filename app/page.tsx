@@ -48,31 +48,70 @@ export default function Dashboard() {
 
   if (!user && !isGuest) {
     return (
-      <div className="min-h-screen scenic-overlay bg-gradient-marble flex items-center justify-center p-4">
+      <div className="min-h-screen scenic-overlay bg-gradient-marble">
         <div className="decoration-top-right" />
         <div className="decoration-bottom-left" />
 
-        <div className="w-full max-w-md relative z-10">
-          <div className="card-luxe p-8 md:p-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gradient-gold mb-4">
-              ClearNest
-            </h1>
-            <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg">
-              Keep your family organized with streaks, shopping lists, inventory tracking, and more.
-            </p>
+        {/* Nav strip */}
+        <div className="relative z-10 flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
+          <div className="text-2xl font-bold text-slate-800">🏠 ClearNest</div>
+          <div className="flex gap-3">
+            <Link href="/auth/login">
+              <Button variant="outline" size="sm" className="border-orange-300 text-orange-600 hover:bg-orange-50">
+                Sign In
+              </Button>
+            </Link>
+            <Link href="/auth/signup">
+              <Button size="sm" className="btn-golden">Get Started</Button>
+            </Link>
+          </div>
+        </div>
 
-            <div className="divider-gold mb-8" />
+        {/* Hero */}
+        <div className="relative z-10 flex flex-col items-center justify-center px-4 pt-16 pb-24 text-center">
+          <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-orange-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-8">
+            <Flame className="w-4 h-4" />
+            Family-first organisation, beautifully designed
+          </div>
 
-            <div className="space-y-3">
-              <Link href="/auth/login">
-                <Button className="w-full btn-golden py-3 text-lg">Sign In</Button>
-              </Link>
-              <Link href="/auth/signup">
-                <Button variant="outline" className="w-full py-3 text-lg border-orange-300 text-orange-600 hover:bg-orange-50">
-                  Create Account
-                </Button>
-              </Link>
-            </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-gradient-gold mb-6 leading-tight">
+            Your Family&apos;s<br />Command Centre
+          </h1>
+
+          <p className="text-xl text-slate-600 max-w-2xl mb-10 leading-relaxed">
+            ClearNest brings streaks, shopping lists, inventory tracking, reminders and family tasks into one elegant space — so every member of the household stays in sync.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <Link href="/auth/signup">
+              <Button className="btn-golden py-4 px-8 text-lg">
+                Start for Free
+                <Plus className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/auth/login">
+              <Button variant="outline" className="py-4 px-8 text-lg border-orange-300 text-orange-600 hover:bg-orange-50">
+                Sign In
+              </Button>
+            </Link>
+          </div>
+
+          {/* Feature grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+            {[
+              { icon: <Flame className="w-7 h-7 text-orange-500" />, title: "Streaks", desc: "Build daily habits together — track each member's progress and celebrate milestones." },
+              { icon: <ShoppingCart className="w-7 h-7 text-blue-500" />, title: "Shopping List", desc: "Shared real-time grocery list with categories, sticky items, and tick-off when done." },
+              { icon: <Package className="w-7 h-7 text-green-500" />, title: "Inventory", desc: "Know exactly what's in your pantry. Get low-stock alerts before you run out." },
+              { icon: <Bell className="w-7 h-7 text-purple-500" />, title: "Reminders", desc: "Kanban board for household tasks. Assign, prioritise, and move cards to done." },
+              { icon: <Map className="w-7 h-7 text-indigo-500" />, title: "Roadmap", desc: "Plan family projects across quarters with a visual progress timeline." },
+              { icon: <Settings className="w-7 h-7 text-slate-500" />, title: "Settings", desc: "Personalise notifications, theme, and account preferences in one place." },
+            ].map((f) => (
+              <div key={f.title} className="card-luxe p-6 text-left">
+                <div className="mb-4">{f.icon}</div>
+                <h3 className="text-lg font-bold mb-2 text-slate-900">{f.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
