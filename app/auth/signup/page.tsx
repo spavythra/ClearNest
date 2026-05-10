@@ -4,7 +4,7 @@ import { useState } from "react"
 import { supabase } from "@/lib/supabase"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Mail, Lock, User, ArrowRight } from "lucide-react"
+import { Mail, Lock, User, ArrowRight, Users } from "lucide-react"
 
 export default function SignupPage() {
   const [email, setEmail] = useState("")
@@ -19,10 +19,11 @@ export default function SignupPage() {
     setError(null)
 
     try {
+      const baseUrl = typeof window !== 'undefined' ? window.location.origin : (process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000')
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback`,
+          redirectTo: `${baseUrl}/auth/callback`,
         },
       })
 
@@ -32,6 +33,11 @@ export default function SignupPage() {
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleGuestSignup = () => {
+    localStorage.setItem('guest_mode', 'true')
+    window.location.href = "/"
   }
 
   const handleEmailSignup = async (e: React.FormEvent) => {
@@ -98,14 +104,25 @@ export default function SignupPage() {
           <Button
             onClick={handleGoogleSignup}
             disabled={loading}
-            className="w-full btn-golden mb-6 py-3 text-lg flex items-center justify-center gap-3"
+            className="w-full btn-golden mb-4 py-3 text-lg flex items-center justify-center gap-3"
           >
             <Mail className="w-5 h-5" />
             {loading ? "Creating account..." : "Sign up with Google"}
           </Button>
 
+          {/* Guest Signup */}
+          <Button
+            onClick={handleGuestSignup}
+            disabled={loading}
+            variant="outline"
+            className="w-full mb-6 py-3 text-lg flex items-center justify-center gap-3 border-orange-300 text-orange-600 hover:bg-orange-50"
+          >
+            <Users className="w-5 h-5" />
+            Continue as Guest
+          </Button>
+
           {/* Divider */}
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-6">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-300" />
             <span className="text-slate-500 text-sm">or</span>
             <div className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-300" />
