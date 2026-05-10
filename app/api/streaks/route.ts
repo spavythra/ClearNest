@@ -63,13 +63,17 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!supabase) {
+      return NextResponse.json({ error: "Database not configured" }, { status: 503 })
+    }
+
     const authHeader = request.headers.get("authorization")
     if (!authHeader) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
     const token = authHeader.replace("Bearer ", "")
-    const { data: user, error: userError } = await supabase!.auth.getUser(token)
+    const { data: user, error: userError } = await supabase.auth.getUser(token)
 
     if (userError || !user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
@@ -77,7 +81,7 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json()
 
-    const { data: streak, error } = await supabase!
+    const { data: streak, error } = await supabase
       .from("streaks")
       .insert([
         {
