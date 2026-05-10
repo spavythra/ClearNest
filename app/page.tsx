@@ -5,6 +5,8 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/layout/navbar"
 import { Card } from "@/components/ui/card"
+import { supabase } from "@/lib/supabase"
+import { User } from "@/lib/types"
 import {
   Flame,
   ShoppingCart,
@@ -12,20 +14,28 @@ import {
   Bell,
   Map,
   Plus,
-  LogOut,
+  Settings,
 } from "lucide-react"
 
 export default function Dashboard() {
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
   const [isGuest, setIsGuest] = useState(false)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const guestMode = typeof window !== 'undefined' && localStorage.getItem('guest_mode') === 'true'
     setIsGuest(guestMode)
-    // TODO: Implement authentication check
-    setUser(null)
-    setLoading(false)
+
+    supabase.auth.getUser().then(({ data }) => {
+      if (data.user) {
+        setUser({
+          id: data.user.id,
+          email: data.user.email ?? '',
+          created_at: data.user.created_at,
+        })
+      }
+      setLoading(false)
+    })
   }, [])
 
   if (loading) {
@@ -71,7 +81,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <Navbar user={user || { email: 'Guest User' }} />
+      <Navbar user={user} />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-amber-50 to-orange-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="mb-8">
@@ -79,7 +89,7 @@ export default function Dashboard() {
               Welcome, {isGuest ? 'Guest' : user?.email}
             </h1>
             {isGuest && (
-              <p className="text-slate-600 dark:text-slate-400">You're browsing in guest mode. <Link href="/auth/login" className="text-orange-600 hover:text-orange-700 font-semibold">Sign in</Link> to save your data.</p>
+              <p className="text-slate-600 dark:text-slate-400">You&apos;re browsing in guest mode. <Link href="/auth/login" className="text-orange-600 hover:text-orange-700 font-semibold">Sign in</Link> to save your data.</p>
             )}
           </div>
 
@@ -117,7 +127,7 @@ export default function Dashboard() {
               </div>
               <h2 className="text-lg font-semibold mb-2">Shopping List</h2>
               <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
-                Manage your family's shopping needs
+                Manage your family&apos;s shopping needs
               </p>
               <Link href="/shopping">
                 <Button variant="outline" className="w-full border-orange-300 text-orange-600 hover:bg-orange-50">
@@ -127,7 +137,7 @@ export default function Dashboard() {
             </Card>
 
             {/* Inventory Card */}
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-lg transition-shadow border-orange-100 dark:border-orange-900/30">
               <div className="flex items-start justify-between mb-4">
                 <Package className="w-6 h-6 text-green-500" />
                 <Link href="/inventory">
@@ -137,18 +147,18 @@ export default function Dashboard() {
                 </Link>
               </div>
               <h2 className="text-lg font-semibold mb-2">Inventory</h2>
-              <p className="text-slate-600 text-sm mb-4">
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
                 Track household items and supplies
               </p>
               <Link href="/inventory">
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full border-orange-300 text-orange-600 hover:bg-orange-50">
                   View Inventory
                 </Button>
               </Link>
             </Card>
 
             {/* Reminders Card */}
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-lg transition-shadow border-orange-100 dark:border-orange-900/30">
               <div className="flex items-start justify-between mb-4">
                 <Bell className="w-6 h-6 text-purple-500" />
                 <Link href="/reminders">
@@ -158,18 +168,18 @@ export default function Dashboard() {
                 </Link>
               </div>
               <h2 className="text-lg font-semibold mb-2">Reminders</h2>
-              <p className="text-slate-600 text-sm mb-4">
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
                 Set reminders for important tasks
               </p>
               <Link href="/reminders">
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full border-orange-300 text-orange-600 hover:bg-orange-50">
                   View Reminders
                 </Button>
               </Link>
             </Card>
 
             {/* Roadmap Card */}
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-lg transition-shadow border-orange-100 dark:border-orange-900/30">
               <div className="flex items-start justify-between mb-4">
                 <Map className="w-6 h-6 text-indigo-500" />
                 <Link href="/roadmap">
@@ -179,27 +189,27 @@ export default function Dashboard() {
                 </Link>
               </div>
               <h2 className="text-lg font-semibold mb-2">Roadmap</h2>
-              <p className="text-slate-600 text-sm mb-4">
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
                 Plan family projects and milestones
               </p>
               <Link href="/roadmap">
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full border-orange-300 text-orange-600 hover:bg-orange-50">
                   View Roadmap
                 </Button>
               </Link>
             </Card>
 
             {/* Settings Card */}
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-lg transition-shadow border-orange-100 dark:border-orange-900/30">
               <div className="flex items-start justify-between mb-4">
-                <LogOut className="w-6 h-6 text-red-500" />
+                <Settings className="w-6 h-6 text-slate-500" />
               </div>
               <h2 className="text-lg font-semibold mb-2">Settings</h2>
-              <p className="text-slate-600 text-sm mb-4">
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
                 Manage your family and preferences
               </p>
               <Link href="/settings">
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full border-orange-300 text-orange-600 hover:bg-orange-50">
                   Go to Settings
                 </Button>
               </Link>
