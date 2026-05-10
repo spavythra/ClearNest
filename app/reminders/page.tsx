@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Navbar } from "@/components/layout/navbar"
 import { Button } from "@/components/ui/button"
-import { Bell, Plus, Settings, Clock, User } from "lucide-react"
+import { Bell, Plus } from "lucide-react"
 import { KanbanBoard } from "@/components/reminders/KanbanBoard"
 
 export interface Task {

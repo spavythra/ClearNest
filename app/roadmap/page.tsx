@@ -1,7 +1,6 @@
 "use client"
 
 import { Navbar } from "@/components/layout/navbar"
-import { Card } from "@/components/ui/card"
 import { Map, CheckCircle2, Circle, AlertCircle } from "lucide-react"
 
 interface RoadmapItem {

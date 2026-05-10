@@ -21,6 +21,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     // TODO: Implement authentication check
+    setUser(null)
     setLoading(false)
   }, [])
 

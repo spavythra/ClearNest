@@ -1,6 +1,6 @@
 # 🏠 ClearNest - Family Maintenance Hub
 
-A beautiful, modular web application for families to manage daily tasks, maintain streaks, track shopping lists, manage inventory, and organize projects—all with a Trello-like Kanban interface.
+A beautiful, modular web application for families to manage daily tasks, maintain streaks, track shopping lists, manage inventory, and organize projects—all with a  interface.
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fspavythra%2FClearNest)
 
@@ -9,7 +9,7 @@ A beautiful, modular web application for families to manage daily tasks, maintai
 ## ✨ Features
 
 ### 🎯 Kanban Board Reminders
-- **Trello-like interface** with 4 columns: To Do, In Progress, Review, Done
+- **Interface** with 4 columns: To Do, In Progress, Review, Done
 - **Drag-drop task management** (desktop)
 - **Priority levels** (Low, Medium, High) with color indicators
 - **Task assignment** to family members
@@ -315,7 +315,7 @@ MIT License - see [LICENSE](./LICENSE) file for details
 
 ## 👨‍💻 Author
 
-**Pavi Thyra**
+**Pavithra**
 - GitHub: [@spavythra](https://github.com/spavythra)
 - Email: developer@clearnest.app
 
