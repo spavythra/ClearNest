@@ -4,10 +4,34 @@ import { NextRequest, NextResponse } from "next/server"
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ""
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || ""
 
-const supabase = createClient(supabaseUrl, supabaseServiceKey)
+const supabase = supabaseUrl && supabaseServiceKey
+  ? createClient(supabaseUrl, supabaseServiceKey)
+  : null
 
 export async function GET(request: NextRequest) {
   try {
+    // If Supabase is not configured, return mock data
+    if (!supabase) {
+      return NextResponse.json([
+        {
+          id: "1",
+          title: "Drink Water",
+          current_streak: 5,
+          longest_streak: 12,
+          last_completed: new Date().toISOString(),
+          family_id: "demo-family"
+        },
+        {
+          id: "2",
+          title: "Exercise",
+          current_streak: 3,
+          longest_streak: 8,
+          last_completed: new Date().toISOString(),
+          family_id: "demo-family"
+        }
+      ])
+    }
+
     const authHeader = request.headers.get("authorization")
     if (!authHeader) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
@@ -45,7 +69,7 @@ export async function POST(request: NextRequest) {
     }
 
     const token = authHeader.replace("Bearer ", "")
-    const { data: user, error: userError } = await supabase.auth.getUser(token)
+    const { data: user, error: userError } = await supabase!.auth.getUser(token)
 
     if (userError || !user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
@@ -53,7 +77,7 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json()
 
-    const { data: streak, error } = await supabase
+    const { data: streak, error } = await supabase!
       .from("streaks")
       .insert([
         {
