@@ -116,7 +116,7 @@ export default function SignupPage() {
             onClick={handleGuestSignup}
             disabled={loading}
             variant="outline"
-            className="w-full mb-6 py-3 text-lg flex items-center justify-center gap-3 border-orange-300 text-orange-600 hover:bg-orange-50"
+            className="w-full mb-6 py-3 text-lg flex items-center justify-center gap-3 border-emerald-600 text-emerald-700 hover:bg-emerald-50"
           >
             <Users className="w-5 h-5" />
             Continue as Guest
@@ -142,7 +142,7 @@ export default function SignupPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
-                  className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-600"
                   required
                 />
               </div>
@@ -159,7 +159,7 @@ export default function SignupPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
-                  className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-600"
                   required
                 />
               </div>
@@ -176,7 +176,7 @@ export default function SignupPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-600"
                   minLength={6}
                   required
                 />
@@ -199,7 +199,7 @@ export default function SignupPage() {
               Already have an account?
             </p>
             <Link href="/auth/login">
-              <Button variant="outline" className="w-full py-2 border-orange-500 text-orange-600 hover:bg-orange-50">
+              <Button variant="outline" className="w-full py-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50">
                 Sign In
               </Button>
             </Link>

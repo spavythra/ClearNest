@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-slate-50 dark:bg-slate-950 flex flex-col min-h-screen">
+      <body className="bg-stone-50 dark:bg-stone-950 flex flex-col min-h-screen">
         <div className="flex-1">
           {children}
         </div>

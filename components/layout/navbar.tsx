@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { User } from "@/lib/types"
-import { LogOut, Menu, X, Settings, Home, Flame, ShoppingCart, Package, Bell, Map } from "lucide-react"
+import { LogOut, Menu, X, Settings, Home, Flame, ShoppingCart, Package, Bell, Map, UtensilsCrossed } from "lucide-react"
 import { useState, useEffect } from "react"
 import { signOut } from "@/lib/supabase"
 import { useRouter, usePathname } from "next/navigation"
@@ -15,6 +15,7 @@ interface NavbarProps {
 const navLinks = [
   { href: "/streaks", label: "Streaks", icon: Flame },
   { href: "/shopping", label: "Shopping", icon: ShoppingCart },
+  { href: "/food", label: "Food Menu", icon: UtensilsCrossed },
   { href: "/inventory", label: "Inventory", icon: Package },
   { href: "/reminders", label: "Reminders", icon: Bell },
   { href: "/roadmap", label: "Roadmap", icon: Map },
@@ -48,14 +49,15 @@ export function Navbar({ user }: NavbarProps) {
     : "G"
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 w-full border-b border-stone-200 dark:border-stone-800 bg-white/90 dark:bg-stone-950/90 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 shrink-0">
-            <div className="text-xl font-bold text-slate-900 dark:text-slate-50">
-              🏠 ClearNest
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm font-bold" style={{ background: "var(--brand)" }}>
+              CN
             </div>
+            <span className="font-bold text-stone-900 dark:text-stone-50 text-lg">ClearNest</span>
           </Link>
 
           {/* Desktop Nav Links */}
@@ -66,7 +68,9 @@ export function Navbar({ user }: NavbarProps) {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className={pathname === href ? "bg-orange-50 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400" : ""}
+                    className={pathname === href
+                      ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-400"
+                      : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"}
                   >
                     {label}
                   </Button>
@@ -80,18 +84,21 @@ export function Navbar({ user }: NavbarProps) {
             {isAuthenticated ? (
               <>
                 {isGuest && (
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200">
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-300">
                     Guest
                   </span>
                 )}
-                {/* Avatar */}
                 <Link href="/settings">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-sm font-bold cursor-pointer hover:opacity-90 transition-opacity" title={user?.email ?? "Guest"}>
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold cursor-pointer hover:opacity-90 transition-opacity"
+                    style={{ background: "linear-gradient(135deg, var(--brand), #52a47b)" }}
+                    title={user?.email ?? "Guest"}
+                  >
                     {initials}
                   </div>
                 </Link>
                 <Link href="/settings">
-                  <Button size="sm" variant="ghost" className="hidden lg:flex items-center gap-1">
+                  <Button size="sm" variant="ghost" className="hidden lg:flex items-center gap-1 text-stone-500">
                     <Settings className="w-4 h-4" />
                   </Button>
                 </Link>
@@ -108,7 +115,7 @@ export function Navbar({ user }: NavbarProps) {
             ) : (
               <>
                 <Link href="/auth/login">
-                  <Button variant="ghost" size="sm">Sign In</Button>
+                  <Button variant="ghost" size="sm" className="text-stone-600">Sign In</Button>
                 </Link>
                 <Link href="/auth/signup">
                   <Button size="sm" className="btn-golden">Get Started</Button>
@@ -119,7 +126,7 @@ export function Navbar({ user }: NavbarProps) {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -130,10 +137,10 @@ export function Navbar({ user }: NavbarProps) {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+        <div className="md:hidden border-t border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-950">
           <div className="px-4 py-3 space-y-1">
             <Link href="/" onClick={() => setIsOpen(false)}>
-              <Button variant="ghost" className="w-full justify-start gap-2">
+              <Button variant="ghost" className="w-full justify-start gap-2 text-stone-600">
                 <Home className="w-4 h-4" /> Dashboard
               </Button>
             </Link>
@@ -141,7 +148,9 @@ export function Navbar({ user }: NavbarProps) {
               <Link key={href} href={href} onClick={() => setIsOpen(false)}>
                 <Button
                   variant="ghost"
-                  className={`w-full justify-start gap-2 ${pathname === href ? "bg-orange-50 text-orange-600 dark:bg-orange-900/20" : ""}`}
+                  className={`w-full justify-start gap-2 ${pathname === href
+                    ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20"
+                    : "text-stone-600"}`}
                 >
                   <Icon className="w-4 h-4" />
                   {label}
@@ -150,21 +159,21 @@ export function Navbar({ user }: NavbarProps) {
             ))}
             {isAuthenticated && (
               <Link href="/settings" onClick={() => setIsOpen(false)}>
-                <Button variant="ghost" className="w-full justify-start gap-2">
+                <Button variant="ghost" className="w-full justify-start gap-2 text-stone-600">
                   <Settings className="w-4 h-4" /> Settings
                 </Button>
               </Link>
             )}
-            <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div className="pt-2 border-t border-stone-100 dark:border-stone-800">
               {isAuthenticated ? (
                 <>
                   {isGuest && (
-                    <p className="text-xs text-yellow-700 dark:text-yellow-400 px-3 py-2 font-medium">
+                    <p className="text-xs text-stone-500 px-3 py-2 font-medium">
                       Guest mode — data not saved
                     </p>
                   )}
                   {user?.email && (
-                    <p className="text-xs text-slate-500 px-3 py-2">{user.email}</p>
+                    <p className="text-xs text-stone-500 px-3 py-2">{user.email}</p>
                   )}
                   <Button
                     variant="ghost"
@@ -178,7 +187,7 @@ export function Navbar({ user }: NavbarProps) {
               ) : (
                 <>
                   <Link href="/auth/login" onClick={() => setIsOpen(false)}>
-                    <Button variant="ghost" className="w-full justify-start">Sign In</Button>
+                    <Button variant="ghost" className="w-full justify-start text-stone-600">Sign In</Button>
                   </Link>
                   <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
                     <Button className="w-full btn-golden mt-1">Get Started</Button>
