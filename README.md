@@ -48,16 +48,6 @@ Live demo: https://clear-nest.vercel.app
 
 ---
 
-## Security
-
-- Row Level Security enforced at the database level
-- JWT-based authentication
-- HTTPS only
-- Input validation against XSS and SQL injection
-- CORS configured on API routes
-
----
-
 ## Project Structure
 
 ```
@@ -136,15 +126,6 @@ npm run dev
 ```
 
 App runs at `http://localhost:3000`
-
----
-
-## Deploy to Vercel
-
-1. Push to GitHub
-2. Import the repo in Vercel
-3. Add the environment variables
-4. Deploy
 
 ---
 
