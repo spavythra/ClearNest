@@ -5,8 +5,8 @@ import "@/styles/globals.css"
 import { Footer } from "@/components/layout/footer"
 
 export const metadata: Metadata = {
-  title: "ClearNest - Family Organisation App",
-  description: "Keep your family organised with streaks, shopping lists, inventory tracking, reminders, and more.",
+  title: "ClearNest | Family Organisation App",
+  description: "Bring your household in sync. Habits, shopping, meal planning, inventory, tasks, and family roadmap — all in one shared space.",
   icons: {
     icon: "/icon.svg",
   },
