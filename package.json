@@ -15,6 +15,10 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,json}\"",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:e2e": "robot --outputdir tests/results tests/robot/",
+    "test:e2e:auth": "robot --outputdir tests/results tests/robot/auth.robot",
+    "test:e2e:kanban": "robot --outputdir tests/results tests/robot/kanban.robot",
+    "test:e2e:shopping": "robot --outputdir tests/results tests/robot/shopping.robot",
     "db:push": "supabase db push",
     "db:pull": "supabase db pull"
   },

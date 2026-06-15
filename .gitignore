@@ -39,3 +39,8 @@ pnpm-debug.log*
 Thumbs.db
 
 .vercel
+
+# Robot Framework
+tests/results/
+__pycache__/
+*.pyc
