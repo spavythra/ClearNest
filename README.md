@@ -32,6 +32,19 @@ Live demo: https://clear-nest.vercel.app
 - Expiry date tracking with reminders
 - Category-based organisation
 
+**Meal Planner**
+- Weekly menu grid, Monday to Sunday, breakfast through dinner
+- Inline editing per meal slot
+
+**Family Roadmap**
+- Visual, phase-by-phase view of shipped, in-progress, and planned features
+- Public page so anyone can see what's coming next
+
+**Account**
+- Google OAuth or email/password sign-in via Supabase Auth
+- Guest mode for browsing without an account
+- Settings page for profile, notification, and sign-out controls
+
 ---
 
 ## Tech Stack
@@ -53,11 +66,14 @@ Live demo: https://clear-nest.vercel.app
 ```
 ClearNest/
 ├── app/
-│   ├── (auth)/          # Login, signup, callback pages
+│   ├── auth/            # Login, signup, callback pages
 │   ├── reminders/       # Kanban board
 │   ├── streaks/         # Habit tracking
 │   ├── shopping/        # Shopping list
 │   ├── inventory/       # Inventory tracker
+│   ├── food/            # Weekly meal planner
+│   ├── roadmap/         # Public feature roadmap
+│   ├── settings/        # Account and preferences
 │   └── api/             # API route handlers
 ├── components/
 │   ├── ui/              # Base UI components
@@ -126,6 +142,15 @@ npm run dev
 ```
 
 App runs at `http://localhost:3000`
+
+---
+
+## Testing
+
+```bash
+npm test              # Jest unit tests
+npm run test:e2e      # Robot Framework end-to-end tests
+```
 
 ---
 
