@@ -259,6 +259,63 @@ export default function Dashboard() {
           </div>
         </section>
 
+        {/* ── Pricing ────────────────────────────────────────── */}
+        <section className="py-16 px-6 max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2
+              className="font-bold mb-3 text-gradient-brand"
+              style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)" }}
+            >
+              Simple pricing
+            </h2>
+            <p className="text-stone-500 max-w-md mx-auto text-sm leading-relaxed">
+              Start free today. No credit card, no trial countdown.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <div className="card-elevated p-8 flex flex-col">
+              <h3 className="text-lg font-bold mb-1 text-stone-900">Free</h3>
+              <p className="text-sm text-stone-500 mb-4">Everything a household needs today</p>
+              <p className="text-3xl font-extrabold mb-6" style={{ color: "var(--brand-deep)" }}>€0</p>
+              <ul className="space-y-2 text-sm text-stone-600 mb-6 flex-1">
+                <li>Kanban task board</li>
+                <li>Habit streaks</li>
+                <li>Shared shopping list</li>
+                <li>Meal planner</li>
+                <li>Inventory tracking</li>
+                <li>Unlimited household members</li>
+              </ul>
+              <Link href="/auth/signup">
+                <Button className="btn-brand w-full">Start for free</Button>
+              </Link>
+            </div>
+
+            <div className="card-elevated p-8 flex flex-col opacity-80">
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="text-lg font-bold text-stone-900">Premium</h3>
+                <span
+                  className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                  style={{ background: "var(--brand-light)", color: "var(--brand-deep)" }}
+                >
+                  Coming soon
+                </span>
+              </div>
+              <p className="text-sm text-stone-500 mb-4">For households that want more</p>
+              <p className="text-3xl font-extrabold mb-6 text-stone-400">TBD</p>
+              <ul className="space-y-2 text-sm text-stone-500 mb-6 flex-1">
+                <li>Push notifications</li>
+                <li>Advanced analytics dashboard</li>
+                <li>Data export (PDF, CSV)</li>
+                <li>Priority support</li>
+              </ul>
+              <Button className="w-full" variant="outline" disabled>
+                Not available yet
+              </Button>
+            </div>
+          </div>
+        </section>
+
         {/* ── How it works ───────────────────────────────────── */}
         <section className="py-16 px-6" style={{ background: "var(--brand-light)" }}>
           <div className="max-w-4xl mx-auto">
