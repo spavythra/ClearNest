@@ -4,11 +4,30 @@ import "react-toastify/dist/ReactToastify.css"
 import "@/styles/globals.css"
 import { Footer } from "@/components/layout/footer"
 
+const title = "ClearNest | Family Organisation App"
+const description = "Bring your household in sync. Habits, shopping, meal planning, inventory, tasks, and family roadmap — all in one shared space."
+const siteUrl = "https://clear-nest.vercel.app"
+
 export const metadata: Metadata = {
-  title: "ClearNest | Family Organisation App",
-  description: "Bring your household in sync. Habits, shopping, meal planning, inventory, tasks, and family roadmap — all in one shared space.",
+  title,
+  description,
   icons: {
     icon: "/icon.svg",
+  },
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "ClearNest",
+    type: "website",
+    images: ["/icon.svg"],
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+    images: ["/icon.svg"],
   },
 }
 
