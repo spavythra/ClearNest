@@ -91,7 +91,7 @@ export default function StreaksPage() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <Flame className="w-10 h-10 text-orange-500 animate-float" />
-              <h1 className="text-5xl font-bold text-gradient-gold">Streaks</h1>
+              <h1 className="text-5xl font-bold text-gradient-brand">Streaks</h1>
             </div>
             <p className="text-slate-600 dark:text-slate-400 text-lg">
               Build daily habits and maintain your streak consistency
@@ -100,13 +100,13 @@ export default function StreaksPage() {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="card-luxe p-6">
+            <div className="card-elevated p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-slate-600 dark:text-slate-400 mb-2">
                     Active Streaks
                   </p>
-                  <p className="text-4xl font-bold text-gradient-gold">
+                  <p className="text-4xl font-bold text-gradient-brand">
                     {totalActive}
                   </p>
                 </div>
@@ -114,13 +114,13 @@ export default function StreaksPage() {
               </div>
             </div>
 
-            <div className="card-luxe p-6">
+            <div className="card-elevated p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-slate-600 dark:text-slate-400 mb-2">
                     Average Days
                   </p>
-                  <p className="text-4xl font-bold text-gradient-royal">
+                  <p className="text-4xl font-bold text-gradient-blue">
                     {averageDays}
                   </p>
                 </div>
@@ -128,13 +128,13 @@ export default function StreaksPage() {
               </div>
             </div>
 
-            <div className="card-luxe p-6">
+            <div className="card-elevated p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-slate-600 dark:text-slate-400 mb-2">
                     Best Streak
                   </p>
-                  <p className="text-4xl font-bold text-gradient-peacock">
+                  <p className="text-4xl font-bold text-gradient-teal">
                     {Math.max(...streaks.map((s) => s.longest_days || 0), 0)}
                   </p>
                 </div>
@@ -145,7 +145,7 @@ export default function StreaksPage() {
 
           {/* Add Streak Form */}
           {showForm && (
-            <div className="card-luxe p-8 mb-12">
+            <div className="card-elevated p-8 mb-12">
               <h2 className="text-2xl font-bold mb-6">Create New Streak</h2>
               <div className="space-y-4">
                 <div>
@@ -178,7 +178,7 @@ export default function StreaksPage() {
                 <div className="flex gap-3 pt-4">
                   <Button
                     onClick={handleAddStreak}
-                    className="btn-golden flex-1"
+                    className="btn-brand flex-1"
                   >
                     <Plus className="w-5 h-5 mr-2" />
                     Create Streak
@@ -198,7 +198,7 @@ export default function StreaksPage() {
           {!showForm && (
             <Button
               onClick={() => setShowForm(true)}
-              className="btn-golden mb-12 py-3 px-6 flex items-center gap-2"
+              className="btn-brand mb-12 py-3 px-6 flex items-center gap-2"
             >
               <Plus className="w-5 h-5" />
               New Streak
@@ -208,7 +208,7 @@ export default function StreaksPage() {
           {/* Streaks List */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {streaks.map((streak) => (
-              <div key={streak.id} className="card-luxe p-6 hover:animate-glow">
+              <div key={streak.id} className="card-elevated p-6 hover:animate-glow">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
@@ -236,7 +236,7 @@ export default function StreaksPage() {
                 {/* Complete Button */}
                 <Button
                   onClick={() => completeStreakToday(streak.id)}
-                  className="btn-golden w-full py-2"
+                  className="btn-brand w-full py-2"
                 >
                   Complete Today
                 </Button>
@@ -245,7 +245,7 @@ export default function StreaksPage() {
           </div>
 
           {streaks.length === 0 && !showForm && (
-            <div className="card-luxe p-12 text-center">
+            <div className="card-elevated p-12 text-center">
               <Flame className="w-16 h-16 text-orange-500 opacity-30 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">No Streaks Yet</h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
@@ -253,7 +253,7 @@ export default function StreaksPage() {
               </p>
               <Button
                 onClick={() => setShowForm(true)}
-                className="btn-golden"
+                className="btn-brand"
               >
                 Create Your First Streak
               </Button>

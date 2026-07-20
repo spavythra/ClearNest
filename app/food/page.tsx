@@ -42,14 +42,10 @@ interface EditState {
 
 export default function FoodMenuPage() {
   const [user, setUser] = useState<User | null>(null)
-  const [isGuest, setIsGuest] = useState(false)
   const [plan, setPlan] = useState<WeekPlan>(emptyWeek)
   const [editing, setEditing] = useState<EditState | null>(null)
 
   useEffect(() => {
-    const guestMode = typeof window !== "undefined" && localStorage.getItem("guest_mode") === "true"
-    setIsGuest(guestMode)
-
     supabase.auth.getUser().then(({ data }) => {
       if (data.user) {
         setUser({

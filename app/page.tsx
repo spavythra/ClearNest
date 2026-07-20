@@ -141,7 +141,7 @@ export default function Dashboard() {
               </Button>
             </Link>
             <Link href="/auth/signup">
-              <Button size="sm" className="btn-golden">Get started</Button>
+              <Button size="sm" className="btn-brand">Get started</Button>
             </Link>
           </div>
         </header>
@@ -192,7 +192,7 @@ export default function Dashboard() {
 
             <div className="flex flex-col sm:flex-row gap-3 mt-1">
               <Link href="/auth/signup">
-                <Button className="btn-golden py-3 px-8 text-base">
+                <Button className="btn-brand py-3 px-8 text-base">
                   Start for free
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -236,7 +236,7 @@ export default function Dashboard() {
         <section className="py-16 px-6 max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2
-              className="font-bold mb-3 text-gradient-gold"
+              className="font-bold mb-3 text-gradient-brand"
               style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)" }}
             >
               Everything your household needs
@@ -248,7 +248,7 @@ export default function Dashboard() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {FEATURES.map((f) => (
-              <div key={f.title} className="card-luxe p-6">
+              <div key={f.title} className="card-elevated p-6">
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${f.bg}`}>
                   {f.icon}
                 </div>
@@ -264,7 +264,7 @@ export default function Dashboard() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2
-                className="font-bold mb-3 text-gradient-gold"
+                className="font-bold mb-3 text-gradient-brand"
                 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)" }}
               >
                 Organised in minutes
@@ -335,7 +335,7 @@ export default function Dashboard() {
       <div className="min-h-screen bg-stone-50 dark:bg-stone-950">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gradient-gold mb-2">
+            <h1 className="text-4xl font-bold text-gradient-brand mb-2">
               Welcome, {isGuest ? "Guest" : user?.email}
             </h1>
             {isGuest && (

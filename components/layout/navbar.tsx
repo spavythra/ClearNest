@@ -118,7 +118,7 @@ export function Navbar({ user }: NavbarProps) {
                   <Button variant="ghost" size="sm" className="text-stone-600">Sign In</Button>
                 </Link>
                 <Link href="/auth/signup">
-                  <Button size="sm" className="btn-golden">Get Started</Button>
+                  <Button size="sm" className="btn-brand">Get Started</Button>
                 </Link>
               </>
             )}
@@ -190,7 +190,7 @@ export function Navbar({ user }: NavbarProps) {
                     <Button variant="ghost" className="w-full justify-start text-stone-600">Sign In</Button>
                   </Link>
                   <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
-                    <Button className="w-full btn-golden mt-1">Get Started</Button>
+                    <Button className="w-full btn-brand mt-1">Get Started</Button>
                   </Link>
                 </>
               )}

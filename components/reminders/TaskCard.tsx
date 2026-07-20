@@ -36,7 +36,7 @@ export function TaskCard({
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="card-luxe p-4 hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing group"
+      className="card-elevated p-4 hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing group"
     >
       {/* Header with Priority Badge */}
       <div className="flex items-start justify-between mb-3">
@@ -107,7 +107,7 @@ export function TaskCard({
       <Button
         size="sm"
         onClick={onMove}
-        className="w-full btn-golden text-xs py-1.5 flex items-center justify-center gap-2"
+        className="w-full btn-brand text-xs py-1.5 flex items-center justify-center gap-2"
       >
         Move to {nextColumnName}
         <ChevronRight className="w-3 h-3" />

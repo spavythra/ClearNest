@@ -69,15 +69,15 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen scenic-overlay bg-gradient-marble flex items-center justify-center p-4">
+    <div className="min-h-screen scenic-overlay bg-gradient-nordic flex items-center justify-center p-4">
       <div className="decoration-top-right" />
       <div className="decoration-bottom-left" />
 
       <div className="w-full max-w-md relative z-10">
-        <div className="card-luxe p-8 md:p-12">
+        <div className="card-elevated p-8 md:p-12">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gradient-gold mb-2">
+            <h1 className="text-4xl md:text-5xl font-bold text-gradient-brand mb-2">
               ClearNest
             </h1>
             <p className="text-slate-600 dark:text-slate-400">
@@ -85,7 +85,7 @@ export default function SignupPage() {
             </p>
           </div>
 
-          <div className="divider-gold mb-8" />
+          <div className="divider-fade mb-8" />
 
           {/* Success Message */}
           {success && (
@@ -105,7 +105,7 @@ export default function SignupPage() {
           <Button
             onClick={handleGoogleSignup}
             disabled={loading}
-            className="w-full btn-golden mb-4 py-3 text-lg flex items-center justify-center gap-3"
+            className="w-full btn-brand mb-4 py-3 text-lg flex items-center justify-center gap-3"
           >
             <Mail className="w-5 h-5" />
             {loading ? "Creating account..." : "Sign up with Google"}
@@ -186,7 +186,7 @@ export default function SignupPage() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full btn-golden py-3 text-lg flex items-center justify-center gap-2"
+              className="w-full btn-brand py-3 text-lg flex items-center justify-center gap-2"
             >
               {loading ? "Creating account..." : "Create Account"}
               <ArrowRight className="w-5 h-5" />

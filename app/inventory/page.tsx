@@ -120,7 +120,7 @@ export default function InventoryPage() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <Package className="w-10 h-10 text-emerald-600 animate-float" />
-              <h1 className="text-5xl font-bold text-gradient-gold">
+              <h1 className="text-5xl font-bold text-gradient-brand">
                 Inventory
               </h1>
             </div>
@@ -131,23 +131,23 @@ export default function InventoryPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="card-luxe p-6">
+            <div className="card-elevated p-6">
               <p className="text-slate-600 dark:text-slate-400 mb-2">
                 Total Items
               </p>
-              <p className="text-4xl font-bold text-gradient-gold">
+              <p className="text-4xl font-bold text-gradient-brand">
                 {totalValue}
               </p>
             </div>
-            <div className="card-luxe p-6">
+            <div className="card-elevated p-6">
               <p className="text-slate-600 dark:text-slate-400 mb-2">
                 Good Stock
               </p>
-              <p className="text-4xl font-bold text-gradient-gold">
+              <p className="text-4xl font-bold text-gradient-brand">
                 {goodStock}
               </p>
             </div>
-            <div className="card-luxe p-6">
+            <div className="card-elevated p-6">
               <p className="text-slate-600 dark:text-slate-400 mb-2">
                 Low Stock Alert
               </p>
@@ -159,7 +159,7 @@ export default function InventoryPage() {
 
           {/* Add Item Form */}
           {showForm && (
-            <div className="card-luxe p-8 mb-12">
+            <div className="card-elevated p-8 mb-12">
               <h2 className="text-2xl font-bold mb-6">Add Inventory Item</h2>
               <div className="space-y-4">
                 <div>
@@ -215,7 +215,7 @@ export default function InventoryPage() {
                   </div>
                 </div>
                 <div className="flex gap-3 pt-4">
-                  <Button onClick={handleAddItem} className="btn-golden flex-1">
+                  <Button onClick={handleAddItem} className="btn-brand flex-1">
                     <Plus className="w-5 h-5 mr-2" />
                     Add Item
                   </Button>
@@ -234,7 +234,7 @@ export default function InventoryPage() {
           {!showForm && (
             <Button
               onClick={() => setShowForm(true)}
-              className="btn-golden mb-12 py-3 px-6 flex items-center gap-2"
+              className="btn-brand mb-12 py-3 px-6 flex items-center gap-2"
             >
               <Plus className="w-5 h-5" />
               Add Item
@@ -243,7 +243,7 @@ export default function InventoryPage() {
 
           {/* Low Stock Alert */}
           {lowStockItems.length > 0 && (
-            <div className="card-luxe bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800 p-6 mb-12">
+            <div className="card-elevated bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800 p-6 mb-12">
               <div className="flex items-start gap-4">
                 <AlertTriangle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-0.5" />
                 <div>
@@ -270,7 +270,7 @@ export default function InventoryPage() {
             {items.map((item) => (
               <div
                 key={item.id}
-                className={`card-luxe p-6 border ${getStatusColor(item.status)}`}
+                className={`card-elevated p-6 border ${getStatusColor(item.status)}`}
               >
                 <div className="flex items-start justify-between mb-3">
                   <div>
@@ -285,7 +285,7 @@ export default function InventoryPage() {
                 </div>
 
                 <div className="mb-4 p-3 bg-white dark:bg-slate-800 rounded-lg">
-                  <p className="text-2xl font-bold text-gradient-gold">
+                  <p className="text-2xl font-bold text-gradient-brand">
                     {item.quantity}
                   </p>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -313,13 +313,13 @@ export default function InventoryPage() {
           </div>
 
           {items.length === 0 && !showForm && (
-            <div className="card-luxe p-12 text-center">
+            <div className="card-elevated p-12 text-center">
               <Package className="w-16 h-16 text-emerald-600 opacity-30 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">No Inventory Items</h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
                 Start tracking your household items
               </p>
-              <Button onClick={() => setShowForm(true)} className="btn-golden">
+              <Button onClick={() => setShowForm(true)} className="btn-brand">
                 Add First Item
               </Button>
             </div>

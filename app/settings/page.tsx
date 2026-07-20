@@ -72,7 +72,7 @@ export default function SettingsPage() {
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
               <Settings className="w-10 h-10 text-slate-600 animate-float" />
-              <h1 className="text-5xl font-bold text-gradient-gold">Settings</h1>
+              <h1 className="text-5xl font-bold text-gradient-brand">Settings</h1>
             </div>
             <p className="text-slate-600 dark:text-slate-400 text-lg">
               Manage your account and preferences
@@ -80,7 +80,7 @@ export default function SettingsPage() {
           </div>
 
           {/* Profile Card */}
-          <div className="card-luxe p-8 mb-6">
+          <div className="card-elevated p-8 mb-6">
             <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
               <UserIcon className="w-5 h-5 text-orange-500" />
               Profile
@@ -99,7 +99,7 @@ export default function SettingsPage() {
                 {isGuest && (
                   <Button
                     size="sm"
-                    className="btn-golden mt-3"
+                    className="btn-brand mt-3"
                     onClick={() => router.push("/auth/login")}
                   >
                     Sign in to save data
@@ -111,7 +111,7 @@ export default function SettingsPage() {
           </div>
 
           {/* Preferences Card */}
-          <div className="card-luxe p-8 mb-6">
+          <div className="card-elevated p-8 mb-6">
             <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
               <Bell className="w-5 h-5 text-purple-500" />
               Preferences
@@ -164,7 +164,7 @@ export default function SettingsPage() {
 
             <Button
               onClick={handleSave}
-              className={`mt-6 btn-golden flex items-center gap-2 ${saved ? "opacity-80" : ""}`}
+              className={`mt-6 btn-brand flex items-center gap-2 ${saved ? "opacity-80" : ""}`}
             >
               {saved ? (
                 <>
@@ -178,7 +178,7 @@ export default function SettingsPage() {
           </div>
 
           {/* Security Card */}
-          <div className="card-luxe p-8 mb-6">
+          <div className="card-elevated p-8 mb-6">
             <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
               <Shield className="w-5 h-5 text-green-500" />
               Security
@@ -199,7 +199,7 @@ export default function SettingsPage() {
           </div>
 
           {/* Sign Out */}
-          <div className="card-luxe p-8">
+          <div className="card-elevated p-8">
             <h2 className="text-xl font-bold mb-4 flex items-center gap-2 text-red-600 dark:text-red-400">
               <LogOut className="w-5 h-5" />
               {isGuest ? "Exit Guest Mode" : "Sign Out"}

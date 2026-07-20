@@ -20,7 +20,7 @@ const roadmapData: RoadmapItem[] = [
     status: "in-progress",
     items: [
       { name: "User Authentication (Gmail OAuth)", status: "completed" },
-      { name: "Lavish Indian Design System", status: "completed" },
+      { name: "Nordic Design System", status: "completed" },
       { name: "Kanban Board Interface", status: "completed" },
       { name: "Streaks Feature", status: "in-progress" },
       { name: "Shopping List Management", status: "completed" },
@@ -98,7 +98,7 @@ export default function RoadmapPage() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <Map className="w-10 h-10 text-indigo-600 animate-float" />
-              <h1 className="text-5xl font-bold text-gradient-gold">Roadmap</h1>
+              <h1 className="text-5xl font-bold text-gradient-brand">Roadmap</h1>
             </div>
             <p className="text-slate-600 dark:text-slate-400 text-lg">
               Our vision for building the perfect family organization tool
@@ -117,7 +117,7 @@ export default function RoadmapPage() {
             ).map((status) => (
               <div
                 key={status}
-                className="card-luxe p-4 flex items-center gap-3"
+                className="card-elevated p-4 flex items-center gap-3"
               >
                 {statusConfig[status].icon}
                 <span className="text-sm font-medium capitalize">{status}</span>
@@ -131,7 +131,7 @@ export default function RoadmapPage() {
               <div key={idx} className="relative">
                 {/* Phase Header */}
                 <div
-                  className={`card-luxe p-6 mb-6 border-l-4 ${
+                  className={`card-elevated p-6 mb-6 border-l-4 ${
                     statusConfig[phase.status].color
                   }`}
                 >
@@ -157,7 +157,7 @@ export default function RoadmapPage() {
                   {phase.items.map((item, itemIdx) => (
                     <div
                       key={itemIdx}
-                      className={`card-luxe p-4 flex items-start gap-3 border-l-2 ${
+                      className={`card-elevated p-4 flex items-start gap-3 border-l-2 ${
                         statusConfig[item.status].color
                       }`}
                     >
@@ -191,7 +191,7 @@ export default function RoadmapPage() {
           </div>
 
           {/* Future Vision */}
-          <div className="card-luxe p-8 mt-12 bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20">
+          <div className="card-elevated p-8 mt-12 bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20">
             <h3 className="text-2xl font-bold mb-4">🚀 Future Vision</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -219,15 +219,15 @@ export default function RoadmapPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="card-luxe p-6 text-center">
-              <p className="text-3xl font-bold text-gradient-gold">
+            <div className="card-elevated p-6 text-center">
+              <p className="text-3xl font-bold text-gradient-brand">
                 {roadmapData.reduce((acc, phase) => acc + phase.items.filter(i => i.status === 'completed').length, 0)}
               </p>
               <p className="text-slate-600 dark:text-slate-400 mt-2">
                 Features Completed
               </p>
             </div>
-            <div className="card-luxe p-6 text-center">
+            <div className="card-elevated p-6 text-center">
               <p className="text-3xl font-bold text-yellow-600">
                 {roadmapData.reduce((acc, phase) => acc + phase.items.filter(i => i.status === 'in-progress').length, 0)}
               </p>
@@ -235,7 +235,7 @@ export default function RoadmapPage() {
                 In Development
               </p>
             </div>
-            <div className="card-luxe p-6 text-center">
+            <div className="card-elevated p-6 text-center">
               <p className="text-3xl font-bold text-blue-600">
                 {roadmapData.reduce((acc, phase) => acc + phase.items.filter(i => i.status === 'planned').length, 0)}
               </p>

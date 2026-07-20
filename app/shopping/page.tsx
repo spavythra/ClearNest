@@ -111,7 +111,7 @@ export default function ShoppingPage() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <ShoppingCart className="w-10 h-10 text-blue-500 animate-float" />
-              <h1 className="text-5xl font-bold text-gradient-gold">
+              <h1 className="text-5xl font-bold text-gradient-brand">
                 Shopping List
               </h1>
             </div>
@@ -122,21 +122,21 @@ export default function ShoppingPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="card-luxe p-6">
+            <div className="card-elevated p-6">
               <p className="text-slate-600 dark:text-slate-400 mb-2">Pending</p>
-              <p className="text-4xl font-bold text-gradient-gold">{pending}</p>
+              <p className="text-4xl font-bold text-gradient-brand">{pending}</p>
             </div>
-            <div className="card-luxe p-6">
+            <div className="card-elevated p-6">
               <p className="text-slate-600 dark:text-slate-400 mb-2">
                 Purchased
               </p>
-              <p className="text-4xl font-bold text-gradient-royal">{completed}</p>
+              <p className="text-4xl font-bold text-gradient-blue">{completed}</p>
             </div>
           </div>
 
           {/* Add Item Form */}
           {showForm && (
-            <div className="card-luxe p-8 mb-12">
+            <div className="card-elevated p-8 mb-12">
               <h2 className="text-2xl font-bold mb-6">Add Item to List</h2>
               <div className="space-y-4">
                 <div>
@@ -191,7 +191,7 @@ export default function ShoppingPage() {
                   </div>
                 </div>
                 <div className="flex gap-3 pt-4">
-                  <Button onClick={handleAddItem} className="btn-golden flex-1">
+                  <Button onClick={handleAddItem} className="btn-brand flex-1">
                     <Plus className="w-5 h-5 mr-2" />
                     Add Item
                   </Button>
@@ -210,7 +210,7 @@ export default function ShoppingPage() {
           {!showForm && (
             <Button
               onClick={() => setShowForm(true)}
-              className="btn-golden mb-12 py-3 px-6 flex items-center gap-2"
+              className="btn-brand mb-12 py-3 px-6 flex items-center gap-2"
             >
               <Plus className="w-5 h-5" />
               Add Item
@@ -221,14 +221,14 @@ export default function ShoppingPage() {
           {Object.entries(groupedItems).map(([category, categoryItems]) =>
             (categoryItems as ShoppingItem[]).length > 0 ? (
               <div key={category} className="mb-8">
-                <h3 className="text-2xl font-bold text-gradient-gold mb-4">
+                <h3 className="text-2xl font-bold text-gradient-brand mb-4">
                   {category}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {(categoryItems as ShoppingItem[]).map((item) => (
                     <div
                       key={item.id}
-                      className={`card-luxe p-5 transition-all ${
+                      className={`card-elevated p-5 transition-all ${
                         item.is_completed
                           ? "opacity-75 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20"
                           : ""
@@ -284,13 +284,13 @@ export default function ShoppingPage() {
           )}
 
           {items.length === 0 && !showForm && (
-            <div className="card-luxe p-12 text-center">
+            <div className="card-elevated p-12 text-center">
               <ShoppingCart className="w-16 h-16 text-blue-500 opacity-30 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Shopping List Empty</h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
                 Add items to your shopping list to get started
               </p>
-              <Button onClick={() => setShowForm(true)} className="btn-golden">
+              <Button onClick={() => setShowForm(true)} className="btn-brand">
                 Add First Item
               </Button>
             </div>

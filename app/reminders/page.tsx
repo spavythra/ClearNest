@@ -134,13 +134,13 @@ export default function RemindersPage() {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <Bell className="w-10 h-10 text-purple-600 animate-float" />
-                <h1 className="text-5xl font-bold text-gradient-gold">
+                <h1 className="text-5xl font-bold text-gradient-brand">
                   Reminders & Tasks
                 </h1>
               </div>
               <Button
                 onClick={() => setShowNewTaskForm(true)}
-                className="btn-golden py-3 px-6 flex items-center gap-2"
+                className="btn-brand py-3 px-6 flex items-center gap-2"
               >
                 <Plus className="w-5 h-5" />
                 New Task
@@ -153,21 +153,21 @@ export default function RemindersPage() {
 
           {/* Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-            <div className="card-luxe p-4 text-center">
-              <p className="text-2xl font-bold text-gradient-gold">
+            <div className="card-elevated p-4 text-center">
+              <p className="text-2xl font-bold text-gradient-brand">
                 {stats.total}
               </p>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 Total Tasks
               </p>
             </div>
-            <div className="card-luxe p-4 text-center">
+            <div className="card-elevated p-4 text-center">
               <p className="text-2xl font-bold text-blue-600">{stats.todo}</p>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 To Do
               </p>
             </div>
-            <div className="card-luxe p-4 text-center">
+            <div className="card-elevated p-4 text-center">
               <p className="text-2xl font-bold text-yellow-600">
                 {stats.inProgress}
               </p>
@@ -175,7 +175,7 @@ export default function RemindersPage() {
                 In Progress
               </p>
             </div>
-            <div className="card-luxe p-4 text-center">
+            <div className="card-elevated p-4 text-center">
               <p className="text-2xl font-bold text-orange-600">
                 {stats.review}
               </p>
@@ -183,7 +183,7 @@ export default function RemindersPage() {
                 In Review
               </p>
             </div>
-            <div className="card-luxe p-4 text-center">
+            <div className="card-elevated p-4 text-center">
               <p className="text-2xl font-bold text-green-600">
                 {stats.completed}
               </p>
@@ -195,7 +195,7 @@ export default function RemindersPage() {
 
           {/* New Task Form */}
           {showNewTaskForm && (
-            <div className="card-luxe p-8 mb-8">
+            <div className="card-elevated p-8 mb-8">
               <h2 className="text-2xl font-bold mb-6">Create New Task</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="md:col-span-2">
@@ -280,7 +280,7 @@ export default function RemindersPage() {
                 <div className="flex gap-3 md:col-span-2 pt-4">
                   <Button
                     onClick={handleAddTask}
-                    className="btn-golden flex-1"
+                    className="btn-brand flex-1"
                   >
                     <Plus className="w-5 h-5 mr-2" />
                     Create Task
